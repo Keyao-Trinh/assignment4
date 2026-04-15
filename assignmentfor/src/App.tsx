@@ -1,18 +1,24 @@
-// import { useState } from 'react';
-import './index.css';
-import { TitleView } from './Titleview';
-// import { MainLayout } from '@/layouts/MainLayout';
-// import React from "react";
-// import { createBrowserRouter, RouterProvider } from "react-router";
-import { Titleview } from "@/views";
-import { Route, Routes } from "react-router";
 
 // import axios from "axios";
-// 
+
+import { MainLayout } from '@/layouts/MainLayout';
+import { CreditsView, ErrorView, HomeView, MovieView, NowPlayingView, ReviewsView, SearchView, TrendingView } from '@/views';
+import { Route, Routes } from 'react-router-dom';
+
 export const App = () => {
   return (
     <Routes>
-<Route path="/" element={<TitleView/>}/> 
+      <Route path="/" element={<HomeView />} />
+      <Route element={<MainLayout />}>
+        <Route path="/now-playing" element={<NowPlayingView />} />
+        <Route path="/search" element={<SearchView />} />
+        <Route path="/movie/:id" element={<MovieView />}>
+          <Route path="credits" element={<CreditsView />} />
+          <Route path="reviews" element={<ReviewsView />} />
+        </Route>
+        <Route path="/trending" element={<TrendingView />} />
+      </Route>
+      <Route path="*" element={<ErrorView />} />
     </Routes>
-  )
-}
+  );
+};
