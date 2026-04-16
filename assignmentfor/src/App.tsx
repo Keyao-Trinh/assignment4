@@ -1,9 +1,10 @@
+import { MainLayout } from './layout/MainLayout';
+import { CreditsView, ErrorView, HomeView, MovieView, NowPlayingView, ReviewsView, SearchView, TrendingView } from './views';
+import { Route, Routes } from "react-router-dom";
+
 
 // import axios from "axios";
 
-import { MainLayout } from '@/layouts/MainLayout';
-import { CreditsView, ErrorView, HomeView, MovieView, NowPlayingView, ReviewsView, SearchView, TrendingView } from '@/views';
-import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
   return (
