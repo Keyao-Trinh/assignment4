@@ -4,6 +4,7 @@ import type { DetailRepsonse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
+// popular, Now Playing, Upcoming, and Top
 
 export const MovieView = () => {
   const navigate = useNavigate();

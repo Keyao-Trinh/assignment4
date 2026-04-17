@@ -1,7 +1,7 @@
 export type GridData = {
   id: number;
   imagePath: string | null;
-  primaryText: string;
+  primaryText?: string;
   secondaryText?: string;
 };
 
