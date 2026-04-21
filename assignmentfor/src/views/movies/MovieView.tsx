@@ -1,4 +1,5 @@
 import { Button, LinkGroup } from '@/components';
+import { Modal } from '@/components/Modal';
 import { IMAGE_BASE_URL, MOVIE_ENDPOINT, ORIGINAL_IMAGE_BASE_URL } from '@/core/constants';
 import type { DetailRepsonse } from '@/core/types';
 import { useTmdb } from '@/hooks';
@@ -21,6 +22,7 @@ export const MovieView = () => {
   }
 
   return (
+    <Modal onClose={() => navigate(-1)}>
     <section className="max-w-[1200px] mx-auto p-10">
       <div
         className="h-[300px] bg-cover bg-center mt-4"
@@ -64,5 +66,6 @@ export const MovieView = () => {
         <Outlet />
       </section>
     </section>
+    </Modal>
   );
 };
