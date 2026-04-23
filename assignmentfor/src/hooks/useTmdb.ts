@@ -10,7 +10,7 @@ export function useTmdb<T>(url: string, params: Record<string, any>, deps: any[]
 
     const fetchData = async () => {
       try {
-        console.log("happpened");
+        
 
         const response = await axios.get<T>(url, {
           params: {
@@ -23,7 +23,7 @@ export function useTmdb<T>(url: string, params: Record<string, any>, deps: any[]
         setData(response.data);
       } catch (err) {
         console.error(err);
-        console.log("somehting abhpappened");
+      
       }
     };
 

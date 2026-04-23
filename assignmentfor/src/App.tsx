@@ -14,7 +14,7 @@ export const App = () => {
       <Route path="/movies/catagory" element={<MainLayout />}>
 
         {/* <Route path="/catagory"> */}
-        <Route path="now-playing" element={<NowPlayingView />} />
+        <Route path="now_playing" element={<NowPlayingView />} />
         <Route path="popular" element={<TrendingView />} />
 
         {/* <Route path="/top_rated" element={<TopView />} /> */}

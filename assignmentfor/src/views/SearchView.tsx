@@ -8,10 +8,10 @@ export const SearchView = () => {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState<number>(1);
   const debouncedQuery = useDebounce(query, 500);
-let endpoint: typeof SEARCH_ENDPOINT | typeof MOVIE_ENDPOINT | typeof TV_ENDPOINT ;
-  let { data } = useTmdb<SearchResponse>(endpoint, { query: debouncedQuery, page }, [debouncedQuery, page]);
-  
-  endpoint = MOVIE_ENDPOINT;
+  let endpoint: typeof SEARCH_ENDPOINT | typeof MOVIE_ENDPOINT | typeof TV_ENDPOINT;
+  let { data } = useTmdb<SearchResponse>(SEARCH_ENDPOINT, { query: debouncedQuery, page }, [debouncedQuery, page]);
+
+
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,
     imagePath: result.profile_path,
@@ -29,10 +29,12 @@ let endpoint: typeof SEARCH_ENDPOINT | typeof MOVIE_ENDPOINT | typeof TV_ENDPOIN
   return (
     <section className="max-w-[1200px] mx-auto p-10 space-y-5">
       <SearchBar value={query} onChange={setQuery} />
-      <Button onClick={() => (endpoint = MOVIE_ENDPOINT)} disabled={endpoint != MOVIE_ENDPOINT} children={undefined} ></Button>
-      <Button onClick={() => (endpoint = TV_ENDPOINT)} disabled={endpoint != TV_ENDPOINT} children={undefined} ></Button>
-      <Button onClick={() => (endpoint = SEARCH_ENDPOINT)} disabled={endpoint != SEARCH_ENDPOINT} children={undefined} ></Button>
-      
+      <Button onClick={() => (endpoint = MOVIE_ENDPOINT)} children={undefined} ></Button>
+      <Button onClick={() => (endpoint = TV_ENDPOINT)}  children={undefined} ></Button>
+      <Button onClick={() => (endpoint = SEARCH_ENDPOINT)} children = {undefined}></Button>
+     
+      {/* <ButtonGroup value={'primary'} options={[label='Movies']} onClick={() => (endpoint = TV_ENDPOINT)} */}
+      {/* /> */}
       {data.results.length ? (
         <>
           <ImageGrid results={gridData} getHref={(id) => `/person/${id}`} />
