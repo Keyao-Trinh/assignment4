@@ -58,5 +58,20 @@ export type SearchResponse = {
   total_results: number;
 };
 
-
-
+export type MovieRepsonse = {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string;
+  backdrop_path: string;
+  release_date: string;
+  vote_average: string;
+  videos?: {
+    result: Array<{
+      key: string;
+      name: string;
+      site: string;
+      type: string;
+    }>;
+  };
+};

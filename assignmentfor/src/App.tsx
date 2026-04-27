@@ -1,7 +1,7 @@
 import { MainLayout } from './layout/MainLayout';
 import { CreditsView, ErrorView, HomeView, MovieView, NowPlayingView, ReviewsView, TrendingView } from '@/views';
 import { Route, Routes } from "react-router-dom";
-import { TvView } from './views/tv/TelevisonView';
+import { TvView } from './views/tv/TvTrendView';
 
 
 // import axios from "axios";
@@ -32,8 +32,7 @@ export const App = () => {
       </Route>
 
 
-      <Route path="/trending" >
-
+      <Route path="/trending" element={<MainLayout/>}>
         <Route path="movies" element={<TrendingView />} />
         <Route path="tv" element={<TvView />} />
       </Route>

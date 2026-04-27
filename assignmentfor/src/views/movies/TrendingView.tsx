@@ -1,4 +1,4 @@
-import { ButtonGroup, Header, ImageGrid, Link, Pagination } from '@/components';
+import { ButtonGroup, ImageGrid, Link, Pagination } from '@/components';
 import { TRENDING_ENDPOINT } from '@/core/constants';
 import type { MediaResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
@@ -23,8 +23,6 @@ export const TrendingView = () => {
 
 
   return (
-    <>
-    <Header/>
     <section className="max-w-[1200px] mx-auto p-5 space-y-5">
       <h1 className="text-3xl font-bold mb-4">Trending</h1>
       <div>
@@ -44,6 +42,5 @@ export const TrendingView = () => {
       <ImageGrid results={gridData} getHref={(id) => `/movie/${id}`} />
       <Pagination page={page} maxPages={data.total_pages} onClick={setPage} />
     </section>
-    </>
   );
 };
