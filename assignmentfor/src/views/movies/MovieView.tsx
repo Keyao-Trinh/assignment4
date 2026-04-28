@@ -1,4 +1,4 @@
-import { Button, LinkGroup } from '@/components';
+import { LinkGroup } from '@/components';
 import { Modal } from '@/components/Modal';
 import { IMAGE_BASE_URL, MOVIE_ENDPOINT, ORIGINAL_IMAGE_BASE_URL } from '@/core/constants';
 import type { DetailRepsonse } from '@/core/types';
@@ -32,7 +32,6 @@ export const MovieView = () => {
           alt={data.title}
         />
         <div className="space-y-4">
-          <Button onClick={() => navigate(-1)}>← Back</Button>
           <h1 className="text-4xl font-bold">{data.title}</h1>
           <p className="text-gray-400 flex items-center gap-2">
             <FaCalendarAlt />
