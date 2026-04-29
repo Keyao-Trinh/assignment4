@@ -1,2 +1,78 @@
 // with_genre a string
 // get ids?
+import { ButtonGroup, ImageGrid, Pagination } from '@/components';
+import { MOVIE_GENRA_ENDPOINT } from '@/core/constants';
+import type { MediaResponse } from '@/core/types';
+import { useTmdb } from '@/hooks';
+import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
+export const GenraView = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState<number>(1);
+  const genrenumber = searchParams.get('genrenumber') || '28';
+  const { data } = useTmdb<MediaResponse>(MOVIE_GENRA_ENDPOINT, `&with_genres/${genrenumber}`, { page } , [page] );
+  
+  const gridData = (data?.results ?? []).map((result) => ({
+    id: result.id,
+    imagePath: result.poster_path,
+    primaryText: result.original_title,
+  }));
+
+  if (!data) {
+    return <p className="text-center text-gray-400">Loading...</p>;
+  }
+
+  return (
+    <section className="max-w-[1200px] mx-auto p-5 space-y-5">
+      <h1 className="text-3xl font-bold mb-4">Genre</h1>
+      
+ <ButtonGroup
+        value={genrenumber}
+        onClick={(value: string) => {
+          setSearchParams({ genrenumber: value });
+        }}
+        options={[
+          { label: 'Action', value: '28' },
+          { label: 'Adventure', value: '12' },
+          { label: 'Animation', value: '16' },
+          { label: 'Crime', value: '80' },
+          { label: 'Family', value: '10751' },
+          { label: 'Fantasy', value: '14' },
+          { label: 'History', value: '36' },
+          { label: 'Horror', value: '27' },
+          { label: 'Mystery', value: '9648' },
+          { label: 'Sci-Fi', value: '878' },
+        ]}
+      />
+
+       {/* <ButtonGroup
+        value={genrenumber}
+        onClick={(value: string) => {
+          setSearchParams({ genrenumber: value });
+        }}
+        options={[
+          { label: 'Action', value: '10759' },
+          { label: 'Animation', value: '16' },
+          { label: 'Comedy', value: '35' },
+          { label: 'Crime', value: '80' },
+          { label: 'Documentary', value: '99' },
+          { label: 'Drama', value: '18' },
+          { label: 'Family', value: '10751' },
+          { label: 'Kids', value: '10762' },
+          { label: 'Mystery', value: '9648' },
+          { label: 'Sci-Fi', value: '10765' },
+        ]}
+      /> */}
+          {/* <LinkGroup
+            options={[
+              { label: 'Credits', to: 'tvcredits' },
+              { label: 'Reviews', to: 'reviews' }
+            ]}
+          />
+          or change vaule to to and make it a LinkGroup ??? */}
+      <ImageGrid results={gridData} getHref={(id) => `/movie/${id}`} />
+      <Pagination page={page} maxPages={data.total_pages} onClick={setPage} />
+    </section>
+  );
+};

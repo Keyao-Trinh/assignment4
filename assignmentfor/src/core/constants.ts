@@ -10,3 +10,5 @@ export const SEARCH_ENDPOINT = 'https://api.themoviedb.org/3/search/person';
 export const AIR_ENDPOINT = 'https://api.themoviedb.org/3/tv/airing_today';
 export const TV_ENDPOINT = 'https://api.themoviedb.org/3/trending/tv';
 export const DETAIL_ENDPOINT ='https://api.themoviedb.org/3/tv/'
+export const TV_GENRA_ENDPOINT = 'https://api.themoviedb.org/3/discover/tv'
+export const MOVIE_GENRA_ENDPOINT = 'https://api.themoviedb.org/3/discover/movie'
