@@ -10,8 +10,9 @@ import { useSearchParams } from 'react-router-dom';
 export const GenraView = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState<number>(1);
-  const genrenumber = searchParams.get('genrenumber') || '28';
-  const { data } = useTmdb<MediaResponse>(MOVIE_GENRA_ENDPOINT, `&with_genres/${genrenumber}`, { page } , [page] );
+  const [genre, setGenre] = useState('28');
+  // const interval = searchParams.get('genre') || '28';
+  const { data } = useTmdb<MediaResponse>(${MOVIE_GENRA_ENDPOINT}, {page, &with_genres/${genre} }, [page] );
   
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,
@@ -27,10 +28,10 @@ export const GenraView = () => {
     <section className="max-w-[1200px] mx-auto p-5 space-y-5">
       <h1 className="text-3xl font-bold mb-4">Genre</h1>
       
- <ButtonGroup
-        value={genrenumber}
+  {/* <ButtonGroup
+        value={genre}
         onClick={(value: string) => {
-          setSearchParams({ genrenumber: value });
+          setSearchParams({ genre: value });
         }}
         options={[
           { label: 'Action', value: '28' },
@@ -44,12 +45,28 @@ export const GenraView = () => {
           { label: 'Mystery', value: '9648' },
           { label: 'Sci-Fi', value: '878' },
         ]}
-      />
+      /> */}
 
-       {/* <ButtonGroup
-        value={genrenumber}
+  <LinkGroup
+        }}
+        options={[
+          { label: 'Action', to='/genre/tv/&with_genres=28' },
+          { label: 'Adventure', to='/genre/tv/&with_genres/12' },
+          { label: 'Animation', to='/genre/tv/&with_genres/16' },
+          { label: 'Crime', to='/genre/tv/&with_genres/80' },
+          { label: 'Family', to='/genre/tv/&with_genres/10751' },
+          { label: 'Fantasy', to='/genre/tv/&with_genres/14' },
+          { label: 'History', to='/genre/tv/&with_genres/36' },
+          { label: 'Horror', to='/genre/tv/&with_genres/27' },
+          { label: 'Mystery', to='/genre/tv/&with_genres/9648' },
+          { label: 'Sci-Fi', to='/genre/tv/&with_genres/878'},
+        ]}
+      />
+      
+        {/* <ButtonGroup
+        value={genre}
         onClick={(value: string) => {
-          setSearchParams({ genrenumber: value });
+          ({ setGenre: value });
         }}
         options={[
           { label: 'Action', value: '10759' },
@@ -63,14 +80,24 @@ export const GenraView = () => {
           { label: 'Mystery', value: '9648' },
           { label: 'Sci-Fi', value: '10765' },
         ]}
-      /> */}
+      />  */}
+          
           {/* <LinkGroup
             options={[
-              { label: 'Credits', to: 'tvcredits' },
-              { label: 'Reviews', to: 'reviews' }
+          { label: 'Action', to="/genre/tv/action" },
+          { label: 'Animation', to="/genre/tv/animation" },
+          { label: 'Comedy', to="/genre/tv/comedy" },
+          { label: 'Crime', to="/genre/tv/crime" },
+          { label: 'Documentary', to="/genre/tv/documentary" },
+          { label: 'Drama', to="/genre/tv/drama" },
+          { label: 'Family', to="/genre/tv/family" },
+          { label: 'Kids', to="/genre/tv/kids" },
+          { label: 'Mystery', to="/genre/tv/mystery" },
+          { label: 'Sci-Fi', to="/genre/tv/scifi" },
+        ]}
             ]}
-          />
-          or change vaule to to and make it a LinkGroup ??? */}
+          /> */}
+          {/* or change vaule to to and make it a LinkGroup ??? */}
       <ImageGrid results={gridData} getHref={(id) => `/movie/${id}`} />
       <Pagination page={page} maxPages={data.total_pages} onClick={setPage} />
     </section>
