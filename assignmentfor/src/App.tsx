@@ -1,5 +1,5 @@
 import { MainLayout } from './layout/MainLayout';
-import { CreditsView, ErrorView, HomeView, MovieView, TvView, TelevisonView, NowPlayingView, ReviewsView, TrendingView } from '@/views';
+import { CreditsView, ErrorView, HomeView, MovieView, TvView, TelevisonView, NowPlayingView, TrendingView } from '@/views';
 import { Route, Routes } from "react-router-dom";
 
 
@@ -17,31 +17,32 @@ export const App = () => {
         {/* <Route path="/upcoming" element={<UpcomingView />} /> */}
       </Route>
 
-      <Route path="/:id" element={<MovieView />}>
+      <Route path="/movie/:id" element={<MovieView />}>
         <Route path="credits" element={<CreditsView />} />
         {/* <Route path="trailers" element={<TrailerView/>} /> */}
-        <Route path="reviews" element={<ReviewsView />} />
+        {/* <Route path="reviews" element={<ReviewsView />} /> */}
       </Route>
       {/* </Route> */}
       {/* <Route path="/person" element={<MainLayout/>}> */}
       {/* <Route path="/:id" element={<PersonView />}> */}
       {/* </Route> */}
-      <Route path="/tv/catagory">
-        <Route path="airing_today" element={<TelevisonView />} >
-          <Route path="credits" element={<TvCreditsView />} />
-          <Route path="reviews" element={<TvReviewsView />} />
-          {/* <Route path="trending" element={<TvTrendView />} /> */}
-        <Route/>
-      </Route>
+      <Route path="/tv/catagory" element={<MainLayout/>}>
+        <Route path="airing_today" element={<TvView />} >
+          {/* <Route path="credits" element={<TvCreditsView />} /> */}
+          {/* <Route path="reviews" element={<TvReviewsView />} /> */}
+          {/* <Route path="trending" element={<TelevisonView />} /> */}
+          {/* <Route/> */}
+        </Route>
+        </Route>
 
 
-      <Route path="/trending" element={<MainLayout/>}>
-        <Route path="movies" element={<TrendingView />} />
-        <Route path="tv" element={<TvView />} />
-      </Route>
+        <Route path="/trending" element={<MainLayout />}>
+          <Route path="movies" element={<TrendingView />} />
+          <Route path="tv" element={<TvView />} />
+        </Route>
 
 
-      <Route path="*" element={<ErrorView />} />
+        <Route path="*" element={<ErrorView />} />
     </Routes>
   );
 };

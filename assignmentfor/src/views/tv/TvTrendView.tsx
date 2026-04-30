@@ -1,15 +1,14 @@
 import { ButtonGroup, ImageGrid, Link, Pagination } from '@/components';
-import { TV_ENDPOINT } from '@/core/constants';
+import { AIR_ENDPOINT } from '@/core/constants';
 import type { MediaResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 export const TvView = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState<number>(1);
-  const interval = searchParams.get('interval') || 'day';
-  const { data } = useTmdb<MediaResponse>(`${TV_ENDPOINT}/${interval}`, {page, time_window: interval}, [page, interval]);
+  // const interval = searchParams.get('interval') || 'day';
+  const { data } = useTmdb<MediaResponse>(`${AIR_ENDPOINT}`, {page}, [page]);
 
 
   const gridData = (data?.results ?? []).map((result) => ({
@@ -37,16 +36,7 @@ export const TvView = () => {
         <Link to="/trending/tv?interval=day">TV</Link>
       </div>
 
-      <ButtonGroup
-        value={interval}
-        onClick={(value: string) => {
-          setSearchParams({ interval: value });
-        }}
-        options={[
-          { label: 'Day', value: 'day' },
-          { label: 'Week', value: 'week' },
-        ]}
-      />
+      
       <ImageGrid results={gridData} getHref={(id) => `/tv/${id}`} />
       <Pagination page={page} maxPages={data.total_pages} onClick={setPage} />
     </section>

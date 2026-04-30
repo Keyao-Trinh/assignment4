@@ -1,19 +1,20 @@
 // with_genre a string
 // get ids?
-import { ButtonGroup, ImageGrid, Pagination } from '@/components';
+import { ImageGrid, LinkGroup, Pagination } from '@/components';
 import { TV_GENRA_ENDPOINT } from '@/core/constants';
 import type { MediaResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
-export const GenraView = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+export const TvGenreView = () => {
+  // const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState<number>(1);
-  const [genre, setGenre] = useState||('28');
-  // const interval = searchParams.get('genre') || '28';
-  const { data } = useTmdb<MediaResponse>(${TV_GENRA_ENDPOINT}, {page, &with_genres/${genre} }, [page] );
-  
+  // const [genre, setGenre] = useState||('28');
+  // const genre = searchParams.get('genre') || '28';
+  let genre:number = 28;
+  const { data } = useTmdb<MediaResponse>(`${TV_GENRA_ENDPOINT}/&with_genres/${genre}`, {page}, [page] );
+  //&with_genres/${genre} 
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,
     imagePath: result.poster_path,
@@ -30,10 +31,9 @@ export const GenraView = () => {
 
 
   <LinkGroup
-        }}
         options={[
-          { label: 'TV', to='/genre/tv/&with_genres=10759' },
-          { label: 'Movies', to='/genre/movies/&with_genres=28' },
+          { label: 'TV', to :'/genre/tv/&with_genres=10759' },
+          { label: 'Movies', to :'/genre/movies/&with_genres=28' },
         ]}
       />
 
@@ -57,21 +57,20 @@ export const GenraView = () => {
         ]}
       /> */}
 
-  {/* <LinkGroup
-        }}
+   <LinkGroup
         options={[
-          { label: 'Action', to='/genre/movie/&with_genres=28' },
-          { label: 'Adventure', to='/genre/movie/&with_genres=12' },
-          { label: 'Animation', to='/genre/movie/&with_genres=16' },
-          { label: 'Crime', to='/genre/movie/&with_genres=80' },
-          { label: 'Family', to='/genre/movie/&with_genres=10751' },
-          { label: 'Fantasy', to='/genre/movie/&with_genres=14' },
-          { label: 'History', to='/genre/movie/&with_genres=36' },
-          { label: 'Horror', to='/genre/movie/&with_genres=27' },
-          { label: 'Mystery', to='/genre/movie/&with_genres=9648' },
-          { label: 'Sci-Fi', to='/genre/movie/&with_genres=878'},
+          { label: 'Action', to:'/genre/movie/&with_genres=28' },
+          { label: 'Adventure', to:'/genre/movie/&with_genres=12' },
+          { label: 'Animation', to:'/genre/movie/&with_genres=16' },
+          { label: 'Crime', to:'/genre/movie/&with_genres=80' },
+          { label: 'Family', to:'/genre/movie/&with_genres=10751' },
+          { label: 'Fantasy', to:'/genre/movie/&with_genres=14' },
+          { label: 'History', to:'/genre/movie/&with_genres=36' },
+          { label: 'Horror', to:'/genre/movie/&with_genres=27' },
+          { label: 'Mystery', to:'/genre/movie/&with_genres=9648' },
+          { label: 'Sci-Fi', to:'/genre/movie/&with_genres=878'},
         ]}
-      /> */}
+      /> 
       
         {/* <ButtonGroup
         value={genre}
@@ -92,7 +91,7 @@ export const GenraView = () => {
         ]}
       />  */}
           
-         <LinkGroup
+         {/* <LinkGroup
             options={[
           { label: 'Action', to="/genre/tv/action" },
           { label: 'Animation', to="/genre/tv/animation" },
@@ -106,7 +105,7 @@ export const GenraView = () => {
           { label: 'Sci-Fi', to="/genre/tv/scifi" },
         ]}
             ]}
-          /> 
+          /> */}
       
           {/* or change vaule to to and make it a LinkGroup ??? */}
       <ImageGrid results={gridData} getHref={(id) => `/tv/${id}`} />

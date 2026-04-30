@@ -8,12 +8,12 @@ export * from '@/views/movies/TrendingView';
 export * from '@/views/SearchView';
 
 export * from '@/views/movies/TrailerView';
-export * from '@/views/Genra/GenraView';
-export * from '@/views/Genra/TvGenraView';
+export * from '@/views/genre/GenreView';
+export * from '@/views/genre/TvGenreView';
 export * from '@/views/person/CareerView';
 export * from '@/views/person/ImagesView';
 export * from '@/views/person/PersonView';
 export * from '@/views/tv/TelevisonView';
-export * from '@/views/tv/TvCreditsView';
+// export * from '@/views/tv/TvCreditsView';
 export * from '@/views/tv/TvReviewsView';
 export * from '@/views/tv/TvTrendView';
