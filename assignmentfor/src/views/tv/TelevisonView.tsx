@@ -1,6 +1,6 @@
 import { LinkGroup } from '@/components';
 import { Modal } from '@/components/Modal';
-import { IMAGE_BASE_URL, AIR_ENDPOINT, ORIGINAL_IMAGE_BASE_URL } from '@/core/constants';
+import { IMAGE_BASE_URL, DETAIL_ENDPOINT, ORIGINAL_IMAGE_BASE_URL } from '@/core/constants';
 import type { DetailRepsonse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { FaCalendarAlt } from 'react-icons/fa';
@@ -12,7 +12,7 @@ import { Outlet, useNavigate, useParams } from 'react-router-dom';
 export const TelevisonView = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { data } = useTmdb<DetailRepsonse>(`${AIR_ENDPOINT}/${id}`, { append_to_response: 'videos' }, []);
+  const { data } = useTmdb<DetailRepsonse>(`${DETAIL_ENDPOINT}/${id}`, { append_to_response: 'videos' }, []);
 
   if (!data) {
     return <p className="text-center text-gray-400">Loading...</p>;
