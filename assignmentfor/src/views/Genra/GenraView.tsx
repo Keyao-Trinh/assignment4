@@ -27,6 +27,16 @@ export const GenraView = () => {
   return (
     <section className="max-w-[1200px] mx-auto p-5 space-y-5">
       <h1 className="text-3xl font-bold mb-4">Genre</h1>
+
+
+  <LinkGroup
+        }}
+        options={[
+          { label: 'TV', to='/genre/tv/&with_genres=10759' },
+          { label: 'Movies', to='/genre/movies/&with_genres=28' },
+        ]}
+      />
+
       
   {/* <ButtonGroup
         value={genre}
@@ -50,16 +60,16 @@ export const GenraView = () => {
   <LinkGroup
         }}
         options={[
-          { label: 'Action', to='/genre/tv/&with_genres=28' },
-          { label: 'Adventure', to='/genre/tv/&with_genres/12' },
-          { label: 'Animation', to='/genre/tv/&with_genres/16' },
-          { label: 'Crime', to='/genre/tv/&with_genres/80' },
-          { label: 'Family', to='/genre/tv/&with_genres/10751' },
-          { label: 'Fantasy', to='/genre/tv/&with_genres/14' },
-          { label: 'History', to='/genre/tv/&with_genres/36' },
-          { label: 'Horror', to='/genre/tv/&with_genres/27' },
-          { label: 'Mystery', to='/genre/tv/&with_genres/9648' },
-          { label: 'Sci-Fi', to='/genre/tv/&with_genres/878'},
+          { label: 'Action', to='/genre/movie/&with_genres=28' },
+          { label: 'Adventure', to='/genre/movie/&with_genres=12' },
+          { label: 'Animation', to='/genre/movie/&with_genres=16' },
+          { label: 'Crime', to='/genre/movie/&with_genres=80' },
+          { label: 'Family', to='/genre/movie/&with_genres=10751' },
+          { label: 'Fantasy', to='/genre/movie/&with_genres=14' },
+          { label: 'History', to='/genre/movie/&with_genres=36' },
+          { label: 'Horror', to='/genre/movie/&with_genres=27' },
+          { label: 'Mystery', to='/genre/movie/&with_genres=9648' },
+          { label: 'Sci-Fi', to='/genre/movie/&with_genres=878'},
         ]}
       />
       
