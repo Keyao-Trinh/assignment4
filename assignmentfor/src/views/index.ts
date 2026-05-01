@@ -14,6 +14,10 @@ export * from '@/views/person/CareerView';
 export * from '@/views/person/ImagesView';
 export * from '@/views/person/PersonView';
 export * from '@/views/tv/TelevisonView';
-// export * from '@/views/tv/TvCreditsView';
 export * from '@/views/tv/TvReviewsView';
 export * from '@/views/tv/TvTrendView';
+export * from '@/views/movies/TrendingTvView';
+
+export * from '@/views/movies/PopularView';
+export * from '@/views/movies/TopRatedView';
+export * from '@/views/movies/UpComingView';

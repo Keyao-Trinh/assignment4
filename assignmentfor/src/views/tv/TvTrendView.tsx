@@ -1,4 +1,4 @@
-import { ButtonGroup, ImageGrid, Link, Pagination } from '@/components';
+import { ImageGrid, Pagination } from '@/components';
 import { AIR_ENDPOINT } from '@/core/constants';
 import type { MediaResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
@@ -31,10 +31,10 @@ export const TvView = () => {
       {/* { label: 'Reviews', to: 'tv' } */}
       {/* ]} */}
       {/* />  */}
-      <div>
+      {/*<div>
         <Link to="/trending/movies?interval=day">Movies</Link>
         <Link to="/trending/tv?interval=day">TV</Link>
-      </div>
+      </div>*/}
 
       
       <ImageGrid results={gridData} getHref={(id) => `/tv/${id}`} />

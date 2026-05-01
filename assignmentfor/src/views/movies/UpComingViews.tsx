@@ -1,12 +1,12 @@
 import { ImageGrid, Link, Pagination } from '@/components';
-import { NOW_PLAYING_ENDPOINT } from '@/core/constants';
+import { UPCOMING_ENDPOINT } from '@/core/constants';
 import type { MediaResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { useState } from 'react';
 
-export const NowPlayingView = () => {
+export const UpcomingView = () => {
   const [page, setPage] = useState<number>(1);
-  const { data } = useTmdb<MediaResponse>(NOW_PLAYING_ENDPOINT, { page }, [page]);
+  const { data } = useTmdb<MediaResponse>(UPCOMING_ENDPOINT, { page }, [page]);
 
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,
@@ -22,15 +22,17 @@ export const NowPlayingView = () => {
 
     
     <section className="max-w-[1200px] mx-auto p-5 space-y-5">
-      <h1 className="text-3xl font-bold mb-4">Now Playing</h1>
+      <h1 className="text-3xl font-bold mb-4">Upcoming</h1>
 <div> 
         <Link to="/movies/catagory/now_playing">Now Playing</Link>
         <Link to="/movies/catagory/popular">Popular</Link>
         <Link to="/movies/catagory/top_rated">Top Rated</Link>
         <Link to="/movies/catagory/upcoming">Upcoming</Link>
+
+
 </div>
 
-      <ImageGrid results={gridData} getHref={(id) => `/movie/${id}/reviews`} />
+      <ImageGrid results={gridData} getHref={(id) => `/movie/${id}/credits`} />
       <Pagination page={page} maxPages={data.total_pages} onClick={setPage} />
     </section>
   );
