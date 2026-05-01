@@ -1,12 +1,12 @@
 import { ImageGrid, Link, Pagination } from '@/components';
-import { UPCOMING_ENDPOINT } from '@/core/constants';
+import { UP_COMING_ENDPOINT } from '@/core/constants';
 import type { MediaResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { useState } from 'react';
 
-export const UpcomingView = () => {
+export const UpComingView = () => {
   const [page, setPage] = useState<number>(1);
-  const { data } = useTmdb<MediaResponse>(UPCOMING_ENDPOINT, { page }, [page]);
+  const { data } = useTmdb<MediaResponse>(UP_COMING_ENDPOINT, { page }, [page]);
 
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,

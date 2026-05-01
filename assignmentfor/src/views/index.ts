@@ -5,6 +5,9 @@ export * from '@/views/movies/MovieView';
 export * from '@/views/movies/NowPlayingView';
 export * from '@/views/movies/ReviewsView';
 export * from '@/views/movies/TrendingView';
+export * from '@/views/movies/UpComingView';
+
+
 export * from '@/views/SearchView';
 
 export * from '@/views/movies/TrailerView';
@@ -20,4 +23,3 @@ export * from '@/views/movies/TrendingTvView';
 
 export * from '@/views/movies/PopularView';
 export * from '@/views/movies/TopRatedView';
-export * from '@/views/movies/UpComingView';
