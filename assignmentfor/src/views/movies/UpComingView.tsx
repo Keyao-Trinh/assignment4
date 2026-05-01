@@ -4,7 +4,7 @@ import type { MediaResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { useState } from 'react';
 
-export const UpComingView = () => {
+export const UpcomingView = () => {
   const [page, setPage] = useState<number>(1);
   const { data } = useTmdb<MediaResponse>(UP_COMING_ENDPOINT, { page }, [page]);
 
