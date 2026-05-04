@@ -9,10 +9,10 @@ export const Header = () => {
         <Link to="/movies/catagory/now_playing">Movies</Link>
         <Link to="/tv/catagory/airing_today">TV</Link>
         <Link to="/trending/movies">Trending</Link>
-        {/* <Link to="/genre/movies/adventure">Genre</Link> */}
+        <Link to="/genre/movies/adventure">Genre</Link>
         {/* <Link to="/search">Search</Link> */}
-      </nav>
       <SearchView/>
+              </nav>
     </header>
   );
 };
