@@ -14,7 +14,7 @@ export const SEARCH_ENDPOINT = 'https://api.themoviedb.org/3/search/person';
 export const AIR_ENDPOINT = 'https://api.themoviedb.org/3/tv/airing_today';
 export const ON_AIR_ENDPOINT = 'https://api.themoviedb.org/3/tv/on_the_air';
 export const POPULAR_TV_ENDPOINT = 'https://api.themoviedb.org/3/tv/popular';
-export const TO_TV_ENDPOINT = 'https://api.themoviedb.org/3/tv/top_rated';
+export const TOP_TV_ENDPOINT = 'https://api.themoviedb.org/3/tv/top_rated';
 
 
 
