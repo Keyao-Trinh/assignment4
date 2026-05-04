@@ -14,12 +14,11 @@ import { useState } from 'react';
 
 export const ImagesView = () => {
   const [page, setPage] = useState<number>(1);
-  const { data } = useTmdb<MediaResponse>(`${PERSON_ENDPOINT}/${id}`, { page }, [page]);
+  const { data } = useTmdb<MediaResponse>(`${PERSON_ENDPOINT}/${id}/images`, { page }, [page]);
 
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,
     imagePath: result.poster_path,
-    primaryText: result.original_title,
   }));
 
   if (!data) {
@@ -29,14 +28,15 @@ export const ImagesView = () => {
   return (
     <section className="space-y-5 p-5">
     <h2 className="text-2xl font-bold">Images</h2>
-    {data.results.length ? (
+    /* {data.results.length ? (
       data.results.slice(0, 5).map((image) => (
-        <ImageGrid results={gridData} getHref={(id) => `/movie/${id}`} />
+        <ImageGrid results={gridData} getHref={(id) => `/person/${id}`} />
 
       ))
     ) : (
       <p className="text-gray-400 text-center">No Images available.</p>
-    )}
+    )} */
+            <ImageGrid results={gridData} />
           <Pagination page={page} maxPages={data.total_pages} onClick={setPage} />
 
   </section>
