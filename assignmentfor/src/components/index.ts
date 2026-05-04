@@ -6,3 +6,5 @@ export * from '@/components/Link';
 export * from '@/components/LinkGroup';
 export * from '@/components/Pagination';
 export * from '@/components/SearchBar';
+export * from '@/components/Modal';
+export * from '@/components/Footer';
