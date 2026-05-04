@@ -1,5 +1,5 @@
 import { MainLayout } from './layout/MainLayout';
-import { CreditsView, ErrorView, HomeView, MovieView, TvView, NowPlayingView, TrendingView, ReviewsView, PopularView } from '@/views';
+import { CreditsView, ErrorView, HomeView, MovieView, TvView, NowPlayingView, TrendingView, ReviewsView, PopularView, TopRatedView, UpcomingView } from '@/views';
 import { Route, Routes } from "react-router-dom";
 
 // import axios from "axios";
@@ -12,8 +12,8 @@ export const App = () => {
       <Route path="/movies/catagory" element={<MainLayout />}>
         <Route path="now_playing" element={<NowPlayingView />} />
         <Route path="popular" element={<PopularView />} />
-        {/* <Route path="top_rated" element={<TopRatedView />} /> */}
-        {/* <Route path="upcoming" element={<UpcomingView />} /> */}
+        <Route path="top_rated" element={<TopRatedView />} />
+        <Route path="upcoming" element={<UpcomingView />} />
         </Route>
 
         <Route path="/movie/:id" element={<MovieView />}>

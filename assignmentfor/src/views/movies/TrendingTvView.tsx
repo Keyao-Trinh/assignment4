@@ -43,7 +43,7 @@ export const TrendingTvView = () => {
                 ]}
             />
 
-            <ImageGrid results={gridData} getHref={(id) => `/tv/${id}`} />
+            <ImageGrid results={gridData} getHref={(id) => `/tv/${id}/credits`} />
             <Pagination page={page} maxPages={data.total_pages} onClick={setPage} />
         </section>
     );

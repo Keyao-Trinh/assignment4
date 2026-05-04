@@ -42,8 +42,8 @@ export const PersonView = () => {
         
           <LinkGroup
             options={[
-              { label: 'Credits', to: 'credits' },
-              { label: 'Reviews', to: 'reviews' },
+              { label: 'Images', to: 'images' },
+              { label: 'Career', to: 'career' },
             ]}
           />
         </div>

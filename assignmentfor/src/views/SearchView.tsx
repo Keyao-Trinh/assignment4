@@ -3,7 +3,7 @@ import { SEARCH_ENDPOINT, MOVIE_ENDPOINT, TV_ENDPOINT } from '@/core/constants';
 import type { SearchResponse } from '@/core/types';
 import { useDebounce, useTmdb } from '@/hooks';
 import { useEffect, useState } from 'react';
-
+//mainlayout and use that to keep state and show searches
 export const SearchView = () => {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState<number>(1);

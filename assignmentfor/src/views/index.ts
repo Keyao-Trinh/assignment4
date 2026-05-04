@@ -19,5 +19,5 @@ export * from '@/views/tv/TvReviewsView';
 export * from '@/views/tv/TvTrendView';
 export * from '@/views/movies/TrendingTvView';
 
-// export * from '@/views/movies/TopRatedView' ;
-// export * from '@/views/movies/UpcomingView' ;
+export * from '@/views/movies/TopRatedView';
+export * from '@/views/movies/UpComingView';

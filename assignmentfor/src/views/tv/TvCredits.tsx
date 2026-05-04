@@ -4,7 +4,7 @@ import type { CreditsResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { useParams } from 'react-router-dom';
 
-export const TVCreditsView = () => {
+export const TvCreditsView = () => {
   const { id } = useParams();
   const { data } = useTmdb<CreditsResponse>(`${DETAIL_ENDPOINT}/${id}/credits`, {}, []);
 
