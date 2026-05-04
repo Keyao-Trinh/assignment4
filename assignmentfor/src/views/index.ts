@@ -16,8 +16,15 @@ export * from '@/views/person/ImagesView';
 export * from '@/views/person/PersonView';
 export * from '@/views/tv/TelevisonView';
 export * from '@/views/tv/TvReviewsView';
-export * from '@/views/tv/TvTrendView';
+export * from '@/views/tv/AiringView';
 export * from '@/views/movies/TrendingTvView';
 
 export * from '@/views/movies/TopRatedView';
 export * from '@/views/movies/UpComingView';
+
+export * from '@/views/tv/EpisodeView';
+export * from '@/views/tv/OnAirView';
+export * from '@/views/tv/PopularTvView';
+export * from '@/views/tv/SeasonsView';
+export * from '@/views/tv/AiringView';
+export * from '@/views/tv/TopTvView';
