@@ -1,5 +1,5 @@
 import { MainLayout } from './layout/MainLayout';
-import { CreditsView, ErrorView, HomeView, MovieView, TrendingTvView, NowPlayingView, TrendingView, ReviewsView, PopularView, TopRatedView, UpcomingView, AiringView, TvCreditsView, TvReviewsView, OnAirView, PopularTvView, TopTvView, ImagesView, CareerView, PersonView, TrailerView, TelevisonView, SeasonsView, EpisodeView, GenreView, TvGenreView } from '@/views';
+import { CreditsView, ErrorView, HomeView, MovieView, TrendingTvView, NowPlayingView, TrendingView, ReviewsView, PopularView, TopRatedView, UpcomingView, AiringView, TvCreditsView, TvReviewsView, OnAirView, PopularTvView, TopTvView, ImagesView, CareerView, PersonView, TrailerView, TelevisonView, SeasonsView, GenreView, TvGenreView } from '@/views';
 import { Route, Routes } from "react-router-dom";
 
 // import axios from "axios";
@@ -38,7 +38,7 @@ export const App = () => {
        <Route/> 
          <Route path="/tv/:id" element={<TelevisonView />} > 
           <Route path="seasons" element={<SeasonsView />} > 
-           {/* <Route path="episode" element={<EpisodeView />} />  */}
+           {/* <Route path=":number" element={<EpisodeView />} />  */}
           <Route/>
            <Route path="credits" element={<TvCreditsView />} /> 
            <Route path="reviews" element={<TvReviewsView />} /> 
