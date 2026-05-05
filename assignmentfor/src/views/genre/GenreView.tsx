@@ -5,14 +5,11 @@ import { MOVIE_GENRA_ENDPOINT } from '@/core/constants';
 import type { MediaResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { useState } from 'react';
-// import { useSearchParams } from 'react-router-dom';
 
 export const GenreView = () => {
-  // const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState<number>(1);
-  // const genrenumber = searchParams.get('genrenumber') || '28';
-  // const genre = "with_genres";
-  const { data } = useTmdb<MediaResponse>(MOVIE_GENRA_ENDPOINT, {page }, [page]);
+  const [genre, setGenre] = useState<string>("28");
+  const { data } = useTmdb<MediaResponse>(`${MOVIE_GENRA_ENDPOINT}/&with_genres/${genre}`, { page }, [page]);
   
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,
@@ -27,11 +24,27 @@ export const GenreView = () => {
   return (
     <section className="max-w-[1200px] mx-auto p-5 space-y-5">
       <h1 className="text-3xl font-bold mb-4">Genre</h1>
+
+ {/* <LinkGroup
+            options={[
+          { label: 'Action', to: '28' },
+          { label: 'Adventure', to: '12' },
+          { label: 'Animation', to: '16' },
+          { label: 'Crime', to: '80' },
+          { label: 'Family', to: '10751' },
+          { label: 'Fantasy', to: '14' },
+          { label: 'History', to: '36' },
+          { label: 'Horror', to: '27' },
+          { label: 'Mystery', to: '9648' },
+          { label: 'Sci-Fi', to: '878' },
+            ]}
+          /> */}
+
       
- {/*<ButtonGroup
-        value={genrenumber}
+ <ButtonGroup
+        value={genre}
         onClick={(value: string) => {
-          setSearchParams({ genrenumber: value });
+          setGenre({value});
         }}
         options={[
           { label: 'Action', value: '28' },
@@ -45,7 +58,7 @@ export const GenreView = () => {
           { label: 'Mystery', value: '9648' },
           { label: 'Sci-Fi', value: '878' },
         ]}
-      />*/}
+      />
 
        {/* <ButtonGroup
         value={genrenumber}
