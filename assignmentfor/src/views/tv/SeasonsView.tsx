@@ -3,15 +3,18 @@ import { DETAIL_ENDPOINT } from '@/core/constants';
 import type { MediaResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 
 export const SeasonsView = () => {
-  const [season, setSeason] useState<number>(1);
-  const { data } = useTmdb<MediaResponse>(`${DETAIL_ENDPOINT}/${id}/season/${season}`, { append_to_response: 'videos' }, []);
+  const { id } = useParams();
+
+  const { data } = useTmdb<MediaResponse>(`${DETAIL_ENDPOINT}/${id}/season/1`, { }, []);
 
   const gridData = (data?.results ?? []).map((result) => ({
-    id: id,
-    imagePath: poster_path,
-    primaryText: season_number,
+    id: result.id,
+    imagePath: result.poster_path,
+    primaryText: result.season_number,
   }));
 
   if (!data) {

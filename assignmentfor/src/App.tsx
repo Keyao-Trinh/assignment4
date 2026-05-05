@@ -1,5 +1,5 @@
 import { MainLayout } from './layout/MainLayout';
-import { CreditsView, ErrorView, HomeView, MovieView, TrendingTvView, NowPlayingView, TrendingView, ReviewsView, PopularView, TopRatedView, UpcomingView, AiringView, TvCreditsView, TvReviewsView, OnAirView, PopularTvView, TopTvView, ImagesView, CareerView } from '@/views';
+import { CreditsView, ErrorView, HomeView, MovieView, TrendingTvView, NowPlayingView, TrendingView, ReviewsView, PopularView, TopRatedView, UpcomingView, AiringView, TvCreditsView, TvReviewsView, OnAirView, PopularTvView, TopTvView, ImagesView, CareerView, PersonView, TrailerView, TelevisonView, SeasonsView, EpisodeView, GenreView, TvGenreView } from '@/views';
 import { Route, Routes } from "react-router-dom";
 
 // import axios from "axios";
@@ -24,10 +24,11 @@ export const App = () => {
     
        <Route path="/person" element={<MainLayout/>}> 
       <Route path=":id" element={<PersonView />}> 
-         <Route path="images" element={<ImagesView />}> 
-            <Route path="career" element={<CareerView />}> 
+         <Route path="images" element={<ImagesView />}/> 
+            <Route path="career" element={<CareerView />}/> 
        </Route> 
-
+       </Route> 
+  
          
       <Route path="/tv/catagory" element={<MainLayout />}>
         <Route path="airing_today" element={<AiringView />} />
@@ -37,11 +38,11 @@ export const App = () => {
        <Route/> 
          <Route path="/tv/:id" element={<TelevisonView />} > 
           <Route path="seasons" element={<SeasonsView />} > 
-           <Route path="episode" element={<EpisodeView />} /> 
+           {/* <Route path="episode" element={<EpisodeView />} />  */}
           <Route/>
            <Route path="credits" element={<TvCreditsView />} /> 
            <Route path="reviews" element={<TvReviewsView />} /> 
-        <Route/> 
+        </Route> 
         </Route>
       </Route>
         
