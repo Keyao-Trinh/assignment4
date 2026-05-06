@@ -44,8 +44,8 @@ export const TelevisonView = () => {
           <LinkGroup
             options={[
               { label: 'Credits', to: 'tvcredits' },
-              { label: 'Reviews', to: 'tvreviews' }
-              // { label: 'Trailer', to: 'trailer' }
+              { label: 'Reviews', to: 'tvreviews' },
+              { label: 'Seasons', to: 'seasons' },
             ]}
           />
         </div>

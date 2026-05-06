@@ -21,7 +21,7 @@ export const TOP_TV_ENDPOINT = 'https://api.themoviedb.org/3/tv/top_rated';
 
 
 export const TV_ENDPOINT = 'https://api.themoviedb.org/3/trending/tv';
-export const DETAIL_ENDPOINT ='https://api.themoviedb.org/3/tv/';
+export const DETAIL_ENDPOINT ='https://api.themoviedb.org/3/tv';
 export const TV_GENRA_ENDPOINT = 'https://api.themoviedb.org/3/discover/tv';
 export const MOVIE_GENRA_ENDPOINT = 'https://api.themoviedb.org/3/discover/movie';
 export const PERSON_ENDPOINT = 'https://api.themoviedb.org/3/person/{person_id}/movie_credits';

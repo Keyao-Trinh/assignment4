@@ -11,7 +11,7 @@ export const AiringView = () => {
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,
     imagePath: result.poster_path,
-    primaryText: result.original_name,
+    primaryText: result.original_title,
   }));
 
   if (!data) {

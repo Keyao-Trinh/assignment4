@@ -28,3 +28,4 @@ export * from '@/views/tv/PopularTvView';
 export * from '@/views/tv/SeasonsView';
 export * from '@/views/tv/AiringView';
 export * from '@/views/tv/TopTvView';
+export * from '@/views/tv/TvCreditsView';

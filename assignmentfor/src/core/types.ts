@@ -7,6 +7,9 @@ export type GridData = {
 
 export type MediaResponse = {
   results: Array<{
+    name: any;
+    still_path: any;
+    season_number: any;
     id: number;
     original_title: string;
     poster_path: string;

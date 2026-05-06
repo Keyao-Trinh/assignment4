@@ -1,4 +1,4 @@
-import { ImageGrid, Link } from '@/components';
+import { ImageGrid } from '@/components';
 import { DETAIL_ENDPOINT } from '@/core/constants';
 import type { MediaResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
